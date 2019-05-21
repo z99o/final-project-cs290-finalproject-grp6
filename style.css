@@ -1,20 +1,20 @@
 div {
-    display: block;
+  display: block;
 }
 
 #menu_bar {
-    position: fixed;
-    margin: 0;
-    left: 0;
-    top: 0;
-    color: #c00;
-    border-right-width: 1px;
-    border-right-color: #000;
-    border-right-style: solid;
-    overflow: auto;
-    width: 140px;
-    height: 100%;
-    background-color: #fff;
+  position: fixed;
+  margin: 0;
+  left: 0;
+  top: 0;
+  color: #c00;
+  border-right-width: 1px;
+  border-right-color: #000;
+  border-right-style: solid;
+  overflow: auto;
+  width: 140px;
+  height: 100%;
+  background-color: #fff;
 }
 
 
@@ -24,35 +24,39 @@ list-style-type:none;
 
 
 a {
-    text-decoration: none;
-    color:black;
+  text-decoration: none;
+  color:black;
 }
 
 body {
-    font-family: Roboto;
-    margin: 0;
-    background-color: WhiteSmoke ;
+  font-family: Roboto;
+  margin: 0;
+  background-color: WhiteSmoke ;
 }
 
 
 #menu_bar #section_bar {
-  font-size: 12px;
-  color: #c00;
-  font-weight: bold;
-  
-  
+font-size: 12px;
+color: #c00;
+font-weight: bold;
+
+
 }
 
 #main_content{
-  margin: auto auto 50px 140px;
+margin: auto auto 50px 140px;
 }
 
 #main_container{
-  background: #f0e0d6;
-  border: 1px solid #000;
-  width: 350px;
-  height: 110px;
-  margin-top: 20px;
-  padding: 5px;
+background: #f0e0d6;
+border: 1px solid #000;
+width: 350px;
+height: 110px;
+margin-top: 20px;
+padding: 5px;
 }
-  
+
+
+h2{
+  text-align: center;
+}
