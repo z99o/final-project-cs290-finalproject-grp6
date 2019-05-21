@@ -48,7 +48,7 @@ margin: auto auto 50px 140px;
 }
 
 #main_container{
-<<<<<<< HEAD
+
 background: #f0e0d6;
 border: 1px solid #000;
 width: 350px;
@@ -61,17 +61,11 @@ padding: 5px;
 h2{
   text-align: center;
 }
-=======
-  background: #f0e0d6;
-  border: 1px solid #000;
-  width: 350px;
-  height: 110px;
-  margin-top: 20px;
-  padding: 5px;
-}
+
+
 
 h2{
   text-align: center;
 }
   
->>>>>>> 13f2e78bf585e8c5916acd34570a60bdd81de37a
+
