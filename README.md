@@ -1,2 +1,6 @@
-# final-project-cs290-finalproject-grp6
-final-project-cs290-finalproject-grp6 created by GitHub Classroom
+# cs290_final_project_group
+
+
+5/28/2019
+
+cs290 Group final project:

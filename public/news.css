@@ -1,0 +1,234 @@
+.header {
+  background-color: black;
+  color: #fff;
+  height: 70px;
+}
+
+.header-logo {
+  font-size: 30px;
+  padding: 20px;
+  float: left;
+}
+
+.header-list {
+  font-size: 15px;
+  float: left;
+}
+
+.header-list li {
+  float: left;
+  padding: 33px 20px;
+  list-style: none;
+}
+
+body {
+  line-height: 1.9;
+  font-family: var(--font-default);
+  position: relative;
+}
+
+#sideMenu a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+#sideMenu {
+  width: 260px;
+  /* height: 400px; */
+  /* background-color: green; */
+  background-color: inherit;
+  float: left;
+}
+
+#sideMenu a {
+  display: block;
+  background-color: inherit;
+  font-size: 13px;
+  border-bottom: 1px solid white;
+  margin: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  line-height: 1.3;
+  color: inherit;
+}
+
+#sideMenu a:hover {
+  background-color: pink;
+}
+
+#sideMenu h2 {
+  background-color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  /*color: gray;*/
+  font-family: default;
+  background-color: rgb(240, 238, 238);
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-weight: bold;
+}
+
+body, div, dl, dt, dd, li, ol, li, h1, h2, h3, h4, h5, form, p, table, th, td, address, input {
+  margin: 0px;
+  padding: 0px;
+}
+
+div {
+  display: block;
+}
+
+/*////////////////////*/
+.main-page {
+  width: 100%;
+  background-color: inherit;
+  padding: 50px;
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+  flex-wrap: wrap;
+}
+
+.post {
+  flex: 0 1 28%;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid grey;
+  background-color: #fff;
+  width: 600px;
+  border-radius: 5px;
+}
+
+.comment-button {
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(0, 0, 0);
+  float: middle;
+}
+
+/* to invisible the Write Something Here*/
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0
+}
+
+#post-container{
+  float: left;
+  width: 800px;
+}
+
+/*to create the header "create post"*/
+#create-post-header {
+  font-size: 15px;
+  margin-bottom: 0px;
+  border-bottom: hidden;
+  background-color: lightgrey;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/*box for create input */
+#create-post-input {
+  margin-top: 0px;
+  border-top: hidden;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+#create-post{
+  margin-bottom: 50px;
+}
+
+/*button to post */
+.accept-button {
+  padding: 5px;
+  margin-right: 25px;
+  background-color: #319df6;
+  color: #fff;
+  float: right;
+}
+
+.post-comment-button{
+  padding: 5px;
+  margin: auto;
+  color: #fff;
+  background-color: #319df6;
+  float: right;
+}
+
+.post-input {
+  padding: 5px 10px;
+  font-size: 15px;
+  width: 500px;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+/********* comment input ************/
+.comment-input {
+  padding: 5px 10px;
+  font-size: 15px;
+  width: 500px;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+.comment-text {
+  background-color: rgb(240, 238, 238);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  margin-bottom: 7px;
+  display: inline-block;
+}
+
+.comment-container{
+  margin: 15px 0px;
+  /*display: none;*/
+}
+
+.hidden{
+  display: none;
+}
+.date-time {
+  font-size: 12px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+}
+
+ul.visible {
+  flex: 0 1 28%;
+  margin: 2px;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 2px;
+  background-color: #fff;
+  margin-left: 250px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  width: 600px;
+  border-radius: 5px;
+  margin-top: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top: none;
+}
