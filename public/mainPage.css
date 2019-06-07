@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 .header {
     background-color: black;
     color: #fff;
@@ -25,8 +29,15 @@
     line-height: 1.9;
     font-family: var(--font-default);
     position: relative;
-}
-  
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(240, 238, 238);
+    }
+
+  #sideMenu a {
+  text-decoration: none;
+  }
+
   #sideMenu.left a{
     text-decoration: none;
 
@@ -77,11 +88,21 @@
     padding: 5px 10px;
 }
 
+.main-page {
+  width: 100%;
+  background-color: inherit;
+  padding: 50px;
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+  flex-wrap: wrap;
+}
+
 #main_page_content {
   width: 700px;
-  position: fixed;
   top: 100px;
   left:350px;
+  position: relative;
   background-color: inherit;
   
 }
@@ -129,10 +150,8 @@
 }
 
 #rules{
-  width: 1000px;
-  position: fixed;
-  top: 750px;
-  left: 500px;
+  text-align: center;
+  position: static;
   background-color: inherit;
 }
 
@@ -174,35 +193,123 @@ h2 {
     font-weight: bold;
 }
 
-
-
-body, div, dl, dt, dd, li, ol, li, h1, h2, h3, h4, h5, form, p, table, th, td, address, input {
-    margin: 0px;
-    padding: 0px;
-}
-
 div {
     display: block;
 }
 
-
-
-
-
-
-/*////////////////////*/
-
-/*
-.twit-container {
-  margin: 50px 10%;
-  display: block;
-  flex-wrap: wrap;
-  
+.post {
+  flex: 0 1 28%;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid grey;
+  background-color: #fff;
+  width: 600px;
+  border-radius: 5px;
 }
 
-.twit {
-  flex: 0 1 28%;
+.comment-button {
   display: flex;
+  justify-content: flex-end;
+  color: rgb(0, 0, 0);
+  float: middle;
+}
+
+/* to invisible the Write Something Here*/
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0
+}
+
+#post-container{
+  float: static;
+  position:
+  width: 800px;
+}
+
+/*to create the header "create post"*/
+#create-post-header {
+  font-size: 15px;
+  margin-bottom: 0px;
+  border-bottom: hidden;
+  background-color: lightgrey;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/*box for create input */
+#create-post-input {
+  margin-top: 0px;
+  border-top: hidden;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+#create-post{
+  margin-bottom: 50px;
+}
+
+/*button to post */
+.accept-button {
+  padding: 5px;
+  margin-right: 25px;
+  background-color: #319df6;
+  color: #fff;
+  float: right;
+}
+
+.post-comment-button{
+  padding: 5px;
+  margin: auto;
+  color: #fff;
+  background-color: #319df6;
+  float: right;
+}
+
+.post-input {
+  padding: 5px 10px;
+  font-size: 15px;
+  width: 500px;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+/********* comment input ************/
+.comment-input {
+  padding: 5px 10px;
+  font-size: 15px;
+  width: 500px;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+.comment-text {
+  background-color: rgb(240, 238, 238);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  margin-bottom: 7px;
+  display: inline-block;
+}
+
+.comment-container{
+  margin: 15px 0px;
+  /*display: none;*/
+}
+
+.hidden{
+  display: none;
+}
+.date-time {
+  font-size: 12px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+}
+
+ul.visible {
+  flex: 0 1 28%;
   margin: 2px;
   padding: 20px;
   border: 1px solid grey;
@@ -210,77 +317,20 @@ div {
   background-color: #fff;
   margin-left: 250px;
   margin-top: 10px;
-  margin-bottom:0px;
+  margin-bottom: 0px;
   width: 600px;
   border-radius: 5px;
-}
-
-*/
-
-/* to invisible the Write Something Here*/
-
-/*
-[placeholder]:focus::-webkit-input-placeholder{
-  transition: opacity 0.5s 0.5s ease; 
-  opacity: 0
-}
-*/
-/*to create the header "create post"*/
-
-/*
-#header-input.twit{
-  font-size: 15px;
-  margin-bottom: 0px;
-  border-bottom: hidden;
-  background-color:lightgrey;
-  padding-bottom:5px;
-  padding-top:5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius:0px;
-}
-*/
-/*box for create input */
-
-/*
-#input.twit{
   margin-top: 0px;
-  border-top: hidden ;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
-}
-*/
-/*button to post */
-
-/*
-.accept-button{
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 10px 10px 10px;
-  background-color: #319df6;
-  color: #fff;
+  border-top: none;
 }
 
-.text-input{
-  font-size: 15px;
-  width : 500px;
+.hide-post-button{
+  font-size : 15px;
+  float: right;
+  border: 0px;
+  background-color:transparent;
+  margin:0px;
 }
 
-*/
-/********** write commend ***********/
-/*
-#add-commend.twit{
-  margin-top:0px;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-  border-top:none;
-  
-}
-
-.text-input-commend{
-  background-color: rgb(240, 238, 238);
-  padding-left:10px;
-  padding-right:10px;
-  border-radius: 15px;
-}
-
-*/
