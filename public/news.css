@@ -232,3 +232,12 @@ ul.visible {
   border-top-left-radius: 0px;
   border-top: none;
 }
+
+.hide-post-button{
+  font-size : 15px;
+  float: right;
+  border: 0px;
+  background-color:transparent;
+  margin:0px;
+}
+

@@ -1,6 +1,2 @@
-# cs290_final_project_group
-
-
-5/28/2019
-
-cs290 Group final project:
+# cs290_final_personal_file
+cs290finalproject
