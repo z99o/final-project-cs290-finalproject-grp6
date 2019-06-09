@@ -46,9 +46,11 @@ function hidePost(event)
     }
   }
 
-
-var menu = document.getElementById('sideMenu');
-menu.addEventListener('click', function(){
-  document.getElementById("background").style.background = "lightblue";
-})
-
+  function addTime(event){
+    var d = new Date();
+    var date_time= document.getElementsByClassName("date-time")[0];
+    date_time.innerHTML = d;
+  
+    //save d to database
+    //then post it to the date-time location!
+  } 
