@@ -4,6 +4,7 @@
 <head>
   <link href="mainPage.css" rel="stylesheet" />
   <script src="news.js" charset="utf-8" defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Muli|Patua+One&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/bfb758fba0.js"></script>
 </head>
 
@@ -14,17 +15,28 @@
     </div>
   </div>
 
-  <main class="main-page">
+  <main class="content-container">
 
-    <div id="sideMenu">
-      <h2>Menu</h2>
-      <a href="" id ='background'>TimeLine1</a>
-      <a href="" id ='background'>CS1</a>
-      <a href="" id ='background'>Asking2</a>
-      <a href="" id ='background'>Club</a>
+    <div id="left-sidebar">
+
+      <div class="menu-content">
+        <h2 class="menu-header">Menu</h2>
+
+        <a href="">TimeLine1</a>
+        <a href="">CS1</a>
+        <a href="">Asking2</a>
+        <a href="">Club</a>
+      </div>
+
+      <div class="button-spacer">
+        <button type="button" class="close-menu-button"><i class="fas fa-chevron-left"></i></button>
+      </div>
+      
     </div>
 
-    <div id="post-container">
+    <div id="center-content">
+
+
 
       <div id="create-post">
         <div class="post" id="create-post-header">
@@ -39,7 +51,7 @@
       </div>
 
       <article class="post">
-          <button type="button" class ="hide-post-button"><i class="fas fa-chevron-up"></i></button>
+        <button type="button" class="hide-post-button"><i class="fas fa-chevron-up"></i></button>
         <div class="post-content visible">
 
           <p class="post-text">
@@ -70,7 +82,7 @@
       </article>
 
       <article class="post">
-        <button type="button" class ="hide-post-button"><i class="fas fa-chevron-up"></i></button>
+        <button type="button" class="hide-post-button"><i class="fas fa-chevron-up"></i></button>
         <div class="post-content visible">
           <p class="post-text">
             Sitting in web dev... This class is so awesome123!
@@ -97,10 +109,10 @@
           <input type="text" placeholder="Comment Something Here" class="comment-input" maxlength="100">
           <button type="button" class="post-comment-button">Comment</button>
         </div>
-  </article>
+      </article>
 
       <article class="post">
-        <button type="button" class ="hide-post-button"><i class="fas fa-chevron-up"></i></button>
+        <button type="button" class="hide-post-button"><i class="fas fa-chevron-up"></i></button>
         <div class="post-content">
           <p class="post-text">
             Sitting in web dev... This class is so awesome123!
@@ -127,9 +139,38 @@
           <input type="text" placeholder="Comment Something Here" class="comment-input" maxlength="100">
           <button type="button" class="post-comment-button">Comment</button>
         </div>
-  </article>
+      </article>
 
     </div>
+    <div id="right-sidebar">
+      <div id="top_news">
+        <h2>
+          Top Posts
+        </h2>
+
+        <ol class="top-posts-list">
+          <li>
+            <a href="a1">
+              A new club have been started, click to join the explore club!
+            </a>
+          </li>
+          <hr>
+          <li>
+
+            <a href="a2">
+              What you guys think about the new building in South campus? I don't like it.
+            </a>
+          </li>
+          <hr>
+          <li>
+            <a href="a3">
+              Good news, no classes on Friday!!! YEA!!
+            </a>
+          </li>
+        </ol>
+
+      </div>
+
   </main>
 </body>
 

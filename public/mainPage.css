@@ -1,91 +1,101 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
+
 .header {
-    background-color: black;
-    color: #fff;
-    height: 70px;
-  }
-  
-  .header-logo{
-   font-size: 30px;
-   padding: 20px;
-   float: left;
-  }
-  
-  .header-list{
-    font-size: 15px;
-    float: left;
-  }
+  background-color: black;
+  color: #fff;
+  height: 70px;
+  margin: 0;
+}
 
-  .header-list li{
-    float: left;
-    padding: 33px 20px;
-    list-style: none;
-  }
-  
-  body {
-    line-height: 1.9;
-    font-family: var(--font-default);
-    position: relative;
-    margin: 0px;
-    padding: 0px;
-    background-color: rgb(240, 238, 238);
-    }
+.header-logo {
+  font-family: 'Patua One', cursive;
+  font-size: 3em;
+  padding: 0px 40px;
+  /*float: left;*/
+}
 
-  #sideMenu a {
+body {
+  line-height: 1.4;
+  font-family: 'Muli', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(240, 238, 238);
+}
+
+#left-sidebar {
+  display: flex;
+  flex: 3 0 20px;
+  max-width: 20%;
+  /* height: 400px; */
+  /* background-color: green; */
+  background-color: inherit;
+  /*position: absolute;*/
+
+}
+
+.menu-content{
+  flex: 0 1 200px;
+}
+
+.button-spacer{
+
+  flex: 0 0 20px;
+  background-color: white;
+
+
+}
+
+#left-sidebar a {
+  display: block;
+  background-color: inherit;
+  font-size: 13px;
+  border-bottom: 1px solid white;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  line-height: 1.3;
+  color: inherit;
   text-decoration: none;
-  }
 
-  #sideMenu.left a{
-    text-decoration: none;
-
-  }
-  
-  a:hover{
-    color: gray;
-  }
-
-#container {
-    margin-top: 40px;
-    background-color: inherit;
-    padding: 0 0px;
-    box-sizing: border-box;
-    margin-left: 50px;
 }
 
-#sideMenu {
-    width: 260px;
-    /* height: 400px; */
-    /* background-color: green; */
-    background-color: inherit;
-    position: absolute;
-}
-
-#sideMenu a {
-    display: block;
-    background-color: inherit;
-    font-size: 13px;
-    border-bottom: 1px solid white;
-    margin: 0 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    line-height: 1.3;
-    color: inherit;
-    
-}
-
-#sideMenu a:hover{
+#left-sidebar a:hover {
   background-color: pink;
 }
 
-#sideMenu h2 {
-    background-color: white;
-    font-size: 16px;
-    padding: 5px 10px;
+.menu-header {
+  background-color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+#center-content {
+  flex: 0 1 700px;
+  padding: 20px;
+  /*align-self: center;*/
+  display: flex;
+  flex-direction: column;
+}
+
+
+a:hover {
+  color: gray;
+}
+
+.content-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  background-color: inherit;
+  /*box-sizing: border-box;*/
 }
 
 .main-page {
@@ -99,102 +109,111 @@
 }
 
 #main_page_content {
-  width: 700px;
-  top: 100px;
-  left:350px;
-  position: relative;
+  /*padding-top: 20px;*/
+  /*width: 700px;*/
+  /*top: 100px;
+  left: 350px;*/
+  /*position: relative;*/
   background-color: inherit;
-  
 }
 
-#main_page_content a{
-  padding: 5%;
-  text-decoration:none;
-  font-size:20px;
+#main_page_content a {
+  /*padding: 20px;*/
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
   color: black;
-
 }
 
-#main_page_content a:hover{
- 
+#main_page_content a:hover {
   color: skyblue;
-  
 }
 
-#main_page_content p{
- 
-  padding:10px;
-  padding-top:50px;
+#main_page_content img {
+  margin: auto;
+  display: block;
+}
+
+/*
+#main_page_content p {
+  padding: 10px;
+  padding-top: 50px;
   padding-left: 25px;
   font-size: 17px;
+}*/
+
+#right-sidebar{
+
+  flex: 0 1 20%;
 }
 
+#top_news {
 
-
-#top_news{
-  width: 300px;
+  /*width: 300px;
   position: fixed;
   top: 130px;
-  left:1400px;
-  background-color: inherit;
+  left: 1400px;
+  background-color: inherit;*/
 }
 
-#top_news a{
-  padding: 5%;
-  text-decoration:none;
-  color: rgb(27, 25, 25); 
+#top_news a {
+  /*padding: 5%;*/
+  text-decoration: none;
+  color: rgb(27, 25, 25);
 }
 
-#top_news a:hover{
+#top_news a:hover {
   color: rgb(36, 172, 226);
 }
 
-#rules{
+.top-posts-list {
+
+  list-style-position: inside;
+}
+
+#rules {
   text-align: center;
-  position: static;
+  /*position: static;*/
   background-color: inherit;
 }
 
-
-
 body {
-    margin: 0px;
-    padding: 0px;
-    /*color: gray;*/
-    font-family: default;
-    background-color: rgb(240, 238, 238);
+  margin: 0;
+  padding: 0;
+  /*color: gray;*/
+  font-family: default;
+  background-color: rgb(240, 238, 238);
 }
 
 #contents {
-    box-sizing: border-box;
-    width: 680px;
-    background-color: white;
-    display: block;
+  box-sizing: border-box;
+  width: 680px;
+  background-color: white;
+  display: block;
 }
 
 #contents h2 {
-    background-color: white;
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 0px;
+  background-color: white;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0px;
 }
 
-
 h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-weight: bold;
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-weight: bold;
 }
 
 div {
-    display: block;
+  display: block;
 }
 
 .post {
@@ -221,10 +240,10 @@ div {
   opacity: 0
 }
 
-#post-container{
+#post-container {
   float: static;
   position:
-  width: 800px;
+    width: 800px;
 }
 
 /*to create the header "create post"*/
@@ -247,7 +266,7 @@ div {
   border-top-left-radius: 0px;
 }
 
-#create-post{
+#create-post {
   margin-bottom: 50px;
 }
 
@@ -260,7 +279,7 @@ div {
   float: right;
 }
 
-.post-comment-button{
+.post-comment-button {
   padding: 5px;
   margin: auto;
   color: #fff;
@@ -294,14 +313,15 @@ div {
   display: inline-block;
 }
 
-.comment-container{
+.comment-container {
   margin: 15px 0px;
   /*display: none;*/
 }
 
-.hidden{
+.hidden {
   display: none;
 }
+
 .date-time {
   font-size: 12px;
   padding-left: 40px;
@@ -326,11 +346,18 @@ ul.visible {
   border-top: none;
 }
 
-.hide-post-button{
-  font-size : 15px;
+.hide-post-button {
+  font-size: 15px;
   float: right;
   border: 0px;
-  background-color:transparent;
-  margin:0px;
+  background-color: transparent;
+  margin: 0px;
 }
 
+.close-menu-button {
+  margin: 8px;
+  width: 20px;
+  float: right;
+  background-color: transparent;
+  border: 0px;
+}
