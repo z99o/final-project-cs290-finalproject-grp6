@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+
 <html>
-    {{{content}}}
+    <head>
+        <link href="mainPage.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Muli|Patua+One&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/bfb758fba0.js"></script>
+       <script src="homePage.js" charset="utf-8" defer></script>
+       
+        <meta charset="utf-8">
+        <title>The Forum</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.runtime.js"></script>
+        <script src="./topNewsTemplate.js"></script>
+        <script src="./postTemplate.js"></script>
+    </head>
+    
+     <div class = "header"> 
+        <div class = "header-logo">
+          Discussion board 
+        </div>
+      </div>
+
+      <div id="container" style="width: 960px;">
+        <div id="sideMenu" class="left" style="width: 260px;">
+              <h2>Menu</h2>
+              <a href = "" >News</a>
+              <a href = "" >Computer Science</a> 
+              <a href = "" >Ask Anything</a>
+              <a href = "" >Clubs</a>
+        <main class="main-page">
+
+        {{{body}}}
+
+        </main>
 </html>
