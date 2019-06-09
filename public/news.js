@@ -5,7 +5,7 @@ window.addEventListener('click', function(event) {
   // When the user clicks the post button
   // (doesn't do anything yet)
   if (event.target.classList.contains("accept-button")) {
-    console.log("post button clicked");
+    createPost();
   }
 
   // When the user clicks the see comments button
@@ -66,3 +66,20 @@ function hideMenu(event) {
   icon.classList.toggle("fa-chevron-left");
 }
 
+function createPost(event) {
+  var post = event.target.parentNode;
+  var postText = post.getElementsByClassName("post-input")[0].value;
+
+  var newPost = {
+    postContent: postText
+  };
+  var postHTML = Handlebars.templates.postTemplate();
+
+  var postContainer = document.getElementById("center-content");
+  postContainer.insertAdjacentHTML('beforeend',postHTML);
+}
+
+var menu = document.getElementById('sideMenu');
+menu.addEventListener('click', function() {
+  document.getElementById("background").style.background = "lightblue";
+})
