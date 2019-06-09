@@ -1,0 +1,19 @@
+<div id="post-container">
+
+    <div id="create-post">
+      <div class="post" id="create-post-header">
+        <p>
+          Create Post
+        </p>
+      </div>
+      <div class="post" id="create-post-input">
+        <input type="text" placeholder="Write Something Here" class="post-input" maxlength="100">
+        <button type="button" class="accept-button">Post</button>
+      </div>
+    </div>
+  {{!#each post}}
+        {{!>postTemplate}}
+  {{!/each}}
+
+</div>
+
