@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 var mongoHost = process.env.MONGO_HOST;
 var mongoPort = process.env.MONGO_PORT || 27017;
 var mongoUser = process.env.MONGO_USER;
-var mongoPassword = "cs290_morelloz";
+var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB_NAME;
 
 var mongoURL ='mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
@@ -22,10 +22,24 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.get('/',function(req,res,next){
+    var collection = db.collection('posts')
     console.log("==Server Displaying Index");
-    res.status(200).render('news',{
-
+    collection.find({}).toArray(function (err, posts) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching posts from DB"
+          });
+        } else {
+            console.log("==posts:", posts);
+            var comments = posts.comments;
+            console.log("==comments:",comments);
+            res.status(200).render('news',{
+                posts: posts,
+                comments:comments
+            });
+        }
     });
+   
 });
 
 app.get('*',function(req,res,next){

@@ -11,9 +11,9 @@
         <button type="button" class="accept-button">Post</button>
       </div>
     </div>
-  {{!#each post}}
-        {{!>postTemplate}}
-  {{!/each}}
+  {{#each posts}}
+        {{>postTemplate}}
+  {{/each}}
 
 </div>
 
