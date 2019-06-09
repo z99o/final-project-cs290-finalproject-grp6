@@ -1,6 +1,7 @@
 // Handle user's clicks
 window.addEventListener('click', function(event) {
 
+
   // When the user clicks the post button
   // (doesn't do anything yet)
   if (event.target.classList.contains("accept-button")) {
@@ -16,6 +17,11 @@ window.addEventListener('click', function(event) {
   else if (event.target.classList.contains("hide-post-button") ||
     event.target.parentNode.classList.contains("hide-post-button")) {
     hidePost(event);
+  }
+
+  else if (event.target.classList.contains("close-menu-button") ||
+    event.target.parentNode.classList.contains("close-menu-button")) {
+    hideMenu(event);
   }
 });
 
@@ -43,6 +49,22 @@ function hidePost(event) {
   icon.classList.toggle("fa-chevron-down");
 }
 
+function hideMenu(event) {
+
+  var menu = document.getElementsByClassName("menu-content")[0];
+  menu.classList.toggle("hidden");
+
+  // Gets the button element regardless of whether the user clicked
+  // the icon or the button
+  if (event.target.parentNode.classList.contains("close-menu-button")){
+    var icon = event.target;
+  } else {
+    var icon = event.target.firstChild;
+  }
+
+  icon.classList.toggle("fa-chevron-right");
+  icon.classList.toggle("fa-chevron-left");
+}
 
 var menu = document.getElementById('sideMenu');
 menu.addEventListener('click', function() {
