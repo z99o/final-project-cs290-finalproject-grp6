@@ -260,8 +260,8 @@ div {
 
 #post-container {
   float: static;
-  position:
-    width: 800px;
+  /*position:*/
+  width: 800px;
 }
 
 /*to create the header "create post"*/
