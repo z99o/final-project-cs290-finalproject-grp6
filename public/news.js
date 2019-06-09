@@ -66,7 +66,3 @@ function hideMenu(event) {
   icon.classList.toggle("fa-chevron-left");
 }
 
-var menu = document.getElementById('sideMenu');
-menu.addEventListener('click', function() {
-  document.getElementById("background").style.background = "lightblue";
-})

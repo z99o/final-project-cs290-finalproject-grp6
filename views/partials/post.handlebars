@@ -1,23 +1,15 @@
 <article class="post">
-        <button type="button" class="hide-post-button"><i class="fas fa-chevron-up"></i></button>
-        <div class="post-content visible">
-
+        <div class="post-content">
           <p class="post-text">
-            {{postContent}}
+            {{postText}}
           </p>
           <button type="button" class="view-comments-button">See Comments</button>
         </div>
 
         <div class="comment-container hidden">
-          <div class="comment">
-            <p class="comment-text">
-              {{!comment}}
-              test comment
-            </p>
-            <p class="date-time">
-              {{!commentDate}}
-              1/2/3
-            </p>
+            {{#each comment}}
+              {{>the database}}
+            {{/each}}
           </div>
           <input type="text" placeholder="Comment Something Here" class="comment-input" maxlength="100">
           <button type="button" class="post-comment-button">Comment</button>
