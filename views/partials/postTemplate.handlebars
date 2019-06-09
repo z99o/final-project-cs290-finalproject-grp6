@@ -1,17 +1,21 @@
 <article class="post">
         <div class="post-content">
           <p class="post-text">
-            {{postText}}
+            {{postContent}}
           </p>
           <button type="button" class="view-comments-button">See Comments</button>
         </div>
 
         <div class="comment-container hidden">
-            {{#each comment}}
-              {{>the database}}
-            {{/each}}
-          </div>
+            <div class="comment">
+              <p class="comment-text">
+                {{!comment}}
+              </p>
+              <p class="date-time">
+                {{!commentDate}}
+              </p>
+            </div>
           <input type="text" placeholder="Comment Something Here" class="comment-input" maxlength="100">
           <button type="button" class="post-comment-button">Comment</button>
         </div>
-      </article>
+</article>
