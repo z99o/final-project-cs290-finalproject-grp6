@@ -90,7 +90,14 @@ function addComment(event) {
   var datetime = new Date();
   var timestamp = formatTimestamp(datetime);
 
-  console.log(timestamp);
+  var newComment = {
+    commentContent: commentText,
+    commentDate: timestamp
+  };
+
+  var commentHTML = Handlebars.templates.commentTemplate();
+  var commentContainer = event.target.parentNode;
+  commentContainer.insertAdjacentHTML('afterbegin',commentContainer);
 }
 
 function formatTimestamp(datetime) {
