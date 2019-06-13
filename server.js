@@ -31,7 +31,7 @@ app.get('/',function(req,res,next){
           });
         } else {
             console.log("==posts:", posts);
-            var comments = posts.comments;
+            var comments = posts.postContent;
             console.log("==comments:",comments);
             res.status(200).render('news',{
                 posts: posts,
