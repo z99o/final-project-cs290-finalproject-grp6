@@ -17,6 +17,11 @@
   /*float: left;*/
 }
 
+.header a{
+  color:white;
+  
+}
+
 body {
   line-height: 1.4;
   font-family: 'Muli', sans-serif;
@@ -401,4 +406,23 @@ ul.visible {
 
   padding:10px;
 
+}
+
+
+#error {
+  margin-top: 50px;
+  text-align: center;
+  padding-right:550px;
+}
+
+.error-container h2 {
+  margin: 10px 0;
+  font-size: 100px;
+  font-weight: 100;
+}
+
+.error-container h3 {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: 400;
 }
