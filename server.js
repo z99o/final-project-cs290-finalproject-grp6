@@ -6,11 +6,11 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var port = process.env.PORT || 3000;
 
-var mongoHost = process.env.MONGO_HOST;
+var mongoHost = "classmongo.engr.oregonstate.edu";
 var mongoPort = process.env.MONGO_PORT || 27017;
-var mongoUser = process.env.MONGO_USER;
-var mongoPassword = process.env.MONGO_PASSWORD;
-var mongoDBName = process.env.MONGO_DB_NAME;
+var mongoUser = "cs290_morelloz";
+var mongoPassword = "BigDatabaseEnergy";
+var mongoDBName = "cs290_morelloz";
 
 var mongoURL ='mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
 
@@ -23,19 +23,63 @@ app.use(express.static('public'));
 
 
 var topNewsAR;
+var tNews;
+var tCS;
+var tAsk;
+var tClub;
+
 //get the top news when any page is loaded and update it
 app.get('*',function(req,res,next){
-  var topnewsdb = db.collection('topnews')
-    topnewsdb.find({}).toArray(function (err, topnews) {
-        if (err) {
-          res.status(500).send({
-            error: "Error fetching news from DB"
-          });
-        }
-        else{
-            topNewsAR = topnews;
-        }
-    });
+  var newsDB = db.collection("newsPosts");
+  var csDB = db.collection("csPosts");
+  var askDB = db.collection("askPosts");
+  var clubDB = db.collection("clubPosts");
+  //update top post for news
+  newsDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+      console.log("==news top post:",top[0].postContent);
+        tNews = top[0].postContent;
+    }
+  });
+  //update top post for cs
+  csDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+      console.log("==cs top post:",top[0].postContent);
+        tCS = top[0].postContent;
+    }
+  });
+  //update top post for ask
+  askDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+        tAsk = top[0].postContent;
+        console.log("==ask top post:",top[0].postContent);
+    }
+  });
+  //update top post for clubs
+  clubDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+        console.log("==club top post:",top[0].postContent);
+        tClub = top[0].postContent;
+    }
+  });
+
+     //topNewsAR = JSON.stringify([{text:tNews, link:"/news"},{text:tCS, link:"/computer-science"},{text:tAsk, link:"/ask-anything"},{text:tClub, link:"/clubs"}]);
     next();
 });
 
@@ -44,13 +88,27 @@ app.get('/',function(req,res,next){
     var collection = db.collection('topnews')
     console.log("==Server Displaying Mainpage");
             res.status(200).render('mainPage',{
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
         });   
 });
 //news page
 app.get('/news',function(req,res,next){
     var collection = db.collection('newsPosts')
+    collection.find().sort({postId:-1}).limit(1).toArray(function(err,curPost){
+      if (err) {
+        res.status(500).send({
+          error: "Error fetching newsPosts from DB"
+        });
+      } else {
+          console.log("==curPost:", curPost);
+          console.log("==postId", curPost[0].postId);
+      }
+    });
 
     console.log("==Server Displaying News Page");
 
@@ -63,13 +121,57 @@ app.get('/news',function(req,res,next){
             console.log("==newsPosts:", newsPosts);
             res.status(200).render('news',{
                 posts: newsPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
     });
    
 });
+
+app.post('/news', function (req, res, next) {
+  var curId = 0;
+  var collection = db.collection('newsPosts')
+  //finds the most recent post to record postId.
+  collection.find().sort({postId:-1}).limit(1).toArray(function(err,curPost){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from server"
+      });
+    } else {
+        console.log("==curPost:", curPost);
+        curId = curPost[0].postId;
+    }
+  });
+
+  console.log("== req.body:", req.body);
+  if (req.postContent) {
+    if (peopleData[person]) {
+      peopleData[person].photos.push({
+        postId: curId++,
+        postContent: "test",
+        comments: []
+      });
+      res.status(200).send("Post successfully added");
+    } else {
+      next();
+    }
+  } else {
+    res.status(400).send({
+      error: "something fcucked up"
+    });
+  }
+});
+
+
+
+
+
+
 //cs page
 app.get('/computer-science',function(req,res,next){
     var collection = db.collection('csPosts')
@@ -85,7 +187,11 @@ app.get('/computer-science',function(req,res,next){
             console.log("==csPosts:", csPosts);
             res.status(200).render('news',{
                 posts: csPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
@@ -106,7 +212,11 @@ app.get('/ask-anything',function(req,res,next){
             console.log("==posts:", askPosts);
             res.status(200).render('news',{
                 posts: askPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
@@ -127,7 +237,11 @@ app.get('/clubs',function(req,res,next){
             console.log("==clubPosts:", clubPosts);
             res.status(200).render('news',{
                 posts: clubPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
