@@ -51,6 +51,16 @@ app.get('/',function(req,res,next){
 //news page
 app.get('/news',function(req,res,next){
     var collection = db.collection('newsPosts')
+    collection.find().sort({postId:-1}).limit(1).toArray(function(err,curPost){
+      if (err) {
+        res.status(500).send({
+          error: "Error fetching newsPosts from DB"
+        });
+      } else {
+          console.log("==curPost:", curPost);
+          console.log("==postId", curPost[0].postId);
+      }
+    });
 
     console.log("==Server Displaying News Page");
 
@@ -70,6 +80,45 @@ app.get('/news',function(req,res,next){
     });
    
 });
+
+app.post('/news', function (req, res, next) {
+  var curId = 0;
+  var collection = db.collection('newsPosts')
+  collection.find().sort({postId:-1}).limit(1).pretty().toArray(function(err,curPost){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+        console.log("==curPost:", curPost);
+        curId = curPost[0].postId;
+    }
+  });
+
+  console.log("== req.body:", req.body);
+  if (req.postContent) {
+    if (peopleData[person]) {
+      peopleData[person].photos.push({
+        postId: curId++,
+        postContent: "test",
+        comments: []
+      });
+      res.status(200).send("Post successfully added");
+    } else {
+      next();
+    }
+  } else {
+    res.status(400).send({
+      error: "something fcucked up"
+    });
+  }
+});
+
+
+
+
+
+
 //cs page
 app.get('/computer-science',function(req,res,next){
     var collection = db.collection('csPosts')

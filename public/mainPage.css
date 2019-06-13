@@ -35,7 +35,9 @@ body {
   /*position: absolute;*/
 
 }
-
+.postId{
+  display: none;
+}
 .menu-content{
   flex: 0 1 200px;
 }
