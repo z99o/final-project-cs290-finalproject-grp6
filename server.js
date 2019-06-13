@@ -136,10 +136,11 @@ app.get('/news',function(req,res,next){
 app.post('/news', function (req, res, next) {
   var curId = 0;
   var collection = db.collection('newsPosts')
-  collection.find().sort({postId:-1}).limit(1).pretty().toArray(function(err,curPost){
+  //finds the most recent post to record postId.
+  collection.find().sort({postId:-1}).limit(1).toArray(function(err,curPost){
     if (err) {
       res.status(500).send({
-        error: "Error fetching newsPosts from DB"
+        error: "Error fetching newsPosts from server"
       });
     } else {
         console.log("==curPost:", curPost);
