@@ -9,16 +9,9 @@
         </div>
 
         <div class="comment-container hidden">
-          <div class="comment">
-            <p class="comment-text">
-              {{!comment}}
-              test comment
-            </p>
-            <p class="date-time">
-              {{!commentDate}}
-              1/2/3
-            </p>
-          </div>
+          {{#each comments}}
+            {{>commentTemplate}}
+          {{/each}}
           <input type="text" placeholder="Comment Something Here" class="comment-input" maxlength="100">
           <button type="button" class="post-comment-button">Comment</button>
         </div>
