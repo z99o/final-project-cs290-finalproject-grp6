@@ -74,13 +74,17 @@ function createPost(event) {
   console.log(post);
   var postText = post.getElementsByClassName("post-input")[0].value;
   console.log(postText);
+
   var newPost = {
-    postContent: postText
+    postContent: postText,
+    comments: []
   };
 
   console.log(newPost);
 
-  var postHTML = Handlebars.templates.postTemplate();
+  var postHTML = Handlebars.templates.postTemplate(newPost);
+
+  console.log(postHTML);
   var postContainer = document.getElementById("center-content");
   postContainer.insertAdjacentHTML('beforeend',postHTML);
 }
@@ -95,7 +99,10 @@ function addComment(event) {
     commentDate: timestamp
   };
 
-  var commentHTML = Handlebars.templates.commentTemplate();
+  console.log(newComment);
+
+  var commentHTML = Handlebars.templates.commentTemplate(newComment);
+  //var commentHTML = Handlebars.templates.commentTemplate(newComment);
   var commentContainer = event.target.parentNode;
   commentContainer.insertAdjacentHTML('afterbegin',commentContainer);
 }
