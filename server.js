@@ -22,26 +22,147 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.get('/',function(req,res,next){
-    var collection = db.collection('posts')
-    console.log("==Server Displaying Index");
-    collection.find({}).toArray(function (err, posts) {
+    var collection = db.collection('topnews')
+    console.log("==Server Displaying Mainpage");
+    collection.find({}).toArray(function (err, topnews) {
         if (err) {
           res.status(500).send({
-            error: "Error fetching posts from DB"
+            error: "Error fetching news from DB"
           });
+          console.log("==topnews:", top);
         } else {
-            console.log("==posts:", posts);
-            var comments = posts.postContent;
-            console.log("==comments:",comments);
-            res.status(200).render('news',{
-                posts: posts,
-                comments:comments
+            res.status(200).render('mainPage',{
+                news:topnews
             });
         }
     });
    
 });
 
+app.get('/news',function(req,res,next){
+    var collection = db.collection('newsPosts')
+    var topnewsdb = db.collection('topnews')
+    var topNewsAR;
+    topnewsdb.find({}).toArray(function (err, topnews) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching news from DB"
+          });
+        }
+        else{
+            topNewsAR = topnews;
+        }
+    });
+    console.log("==Server Displaying News Page");
+
+    collection.find({}).toArray(function (err, newsPosts) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching newsPosts from DB"
+          });
+        } else {
+            console.log("==newsPosts:", newsPosts);
+            res.status(200).render('news',{
+                posts: newsPosts,
+                news:topNewsAR
+            });
+        }
+    });
+   
+});
+app.get('/computer-science',function(req,res,next){
+    var collection = db.collection('csPosts')
+    var topnewsdb = db.collection('topnews')
+    var topNewsAR;
+    topnewsdb.find({}).toArray(function (err, topnews) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching news from DB"
+          });
+        }
+        else{
+            topNewsAR = topnews;
+        }
+    });
+    console.log("==Server Displaying CS Page");
+
+    collection.find({}).toArray(function (err, csPosts) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching csPosts from DB"
+          });
+        } else {
+            console.log("==csPosts:", csPosts);
+            res.status(200).render('news',{
+                posts: csPosts,
+                news:topNewsAR
+            });
+        }
+    });
+   
+});
+app.get('/ask-anything',function(req,res,next){
+    var collection = db.collection('askPosts')
+    var topnewsdb = db.collection('topnews')
+    var topNewsAR;
+    topnewsdb.find({}).toArray(function (err, topnews) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching news from DB"
+          });
+        }
+        else{
+            topNewsAR = topnews;
+        }
+    });
+    console.log("==Server Displaying Ask Page");
+
+    collection.find({}).toArray(function (err, askPosts) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching askPosts from DB"
+          });
+        } else {
+            console.log("==posts:", askPosts);
+            res.status(200).render('news',{
+                posts: askPosts,
+                news:topNewsAR
+            });
+        }
+    });
+   
+});
+app.get('/clubs',function(req,res,next){
+    var collection = db.collection('clubPosts')
+    var topnewsdb = db.collection('topnews')
+    var topNewsAR;
+    topnewsdb.find({}).toArray(function (err, topnews) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching news from DB"
+          });
+        }
+        else{
+            topNewsAR = topnews;
+        }
+    });
+    console.log("==Server Displaying Clubs Page");
+
+    collection.find({}).toArray(function (err, clubPosts) {
+        if (err) {
+          res.status(500).send({
+            error: "Error fetching clubPosts from DB"
+          });
+        } else {
+            console.log("==clubPosts:", clubPosts);
+            res.status(200).render('news',{
+                posts: clubPosts,
+                news:topNewsAR
+            });
+        }
+    });
+   
+});
 app.get('*',function(req,res,next){
     console.log("==Server Displaying 404 Page");
     res.status(404);
@@ -53,6 +174,6 @@ MongoClient.connect(mongoURL,function(err,client){
     }
     db = mongoDBDatabase = client.db(mongoDBName);
     app.listen(port, function () {
-        console.log("== Server is listening on port", port);
+        console.log("==Server is listening on port", port);
     });
 });

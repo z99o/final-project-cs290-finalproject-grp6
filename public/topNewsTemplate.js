@@ -6,7 +6,7 @@ templates['topNewsTemplate'] = template({"compiler":[7,">= 4.0.0"],"main":functi
   return "          <li>\r\n            <a href="
     + alias4(((helper = (helper = helpers.link || (depth0 != null ? depth0.link : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"link","hash":{},"data":data}) : helper)))
     + ">\r\n             "
-    + alias4(((helper = (helper = helpers["top-news"] || (depth0 != null ? depth0["top-news"] : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"top-news","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data}) : helper)))
     + "\r\n            </a>\r\n          </li>\r\n          <hr>";
 },"useData":true});
 })();

@@ -1,0 +1,33 @@
+ <div id="center-content">
+
+      <div id="main_page_content">
+        <a href="reedPage.html"> "Man is only a reed, the weakest in nature, but he is a thinking reed" - Blaise Pascal </a>
+        
+        <img src="sky.gif" alt="environment" width="850" height="530" />
+      </div>
+
+
+      <div id="rules">
+        <h5>
+          This website is designed for free speech. We welcome all ideas and opinions, but no personal attacks are allowed.
+        </h5>
+        <h4>
+          Respect and Understanding. We hope you enjoy.
+        </h4>
+      </div>
+
+    </div>
+<div id="right-sidebar">
+      <div id="top_news">
+        <h2>
+          Top Posts
+        </h2>
+
+        <ol class="top-posts-list">
+          {{#each news}}
+            {{>topNewsTemplate}}
+          {{/each}}
+        </ol>
+
+      </div>
+    
