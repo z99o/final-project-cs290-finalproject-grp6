@@ -23,7 +23,7 @@ app.use(express.static('public'));
 
 
 var topNewsAR;
-
+//get the top news when any page is loaded and update it
 app.get('*',function(req,res,next){
   var topnewsdb = db.collection('topnews')
     topnewsdb.find({}).toArray(function (err, topnews) {
@@ -39,6 +39,7 @@ app.get('*',function(req,res,next){
     next();
 });
 
+//main page
 app.get('/',function(req,res,next){
     var collection = db.collection('topnews')
     console.log("==Server Displaying Mainpage");
@@ -47,7 +48,7 @@ app.get('/',function(req,res,next){
                 fileNotFound:false
         });   
 });
-
+//news page
 app.get('/news',function(req,res,next){
     var collection = db.collection('newsPosts')
 
@@ -69,6 +70,7 @@ app.get('/news',function(req,res,next){
     });
    
 });
+//cs page
 app.get('/computer-science',function(req,res,next){
     var collection = db.collection('csPosts')
     
@@ -90,6 +92,7 @@ app.get('/computer-science',function(req,res,next){
     });
    
 });
+//ask anything page
 app.get('/ask-anything',function(req,res,next){
     var collection = db.collection('askPosts')
     console.log("==Server Displaying Ask Page");
@@ -110,6 +113,7 @@ app.get('/ask-anything',function(req,res,next){
     });
    
 });
+//clubs page
 app.get('/clubs',function(req,res,next){
     var collection = db.collection('clubPosts')
     console.log("==Server Displaying Clubs Page");
