@@ -16,4 +16,16 @@
   {{/each}}
 
 </div>
+<div id="right-sidebar">
+      <div id="top_news">
+        <h2>
+          Top Posts
+        </h2>
 
+        <ol class="top-posts-list">
+          {{#each news}}
+            {{>topNewsTemplate}}
+          {{/each}}
+        </ol>
+
+      </div>
