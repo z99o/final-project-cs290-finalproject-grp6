@@ -78,8 +78,3 @@ function createPost(event) {
   var postContainer = document.getElementById("center-content");
   postContainer.insertAdjacentHTML('beforeend',postHTML);
 }
-
-var menu = document.getElementById('sideMenu');
-menu.addEventListener('click', function() {
-  document.getElementById("background").style.background = "lightblue";
-})
