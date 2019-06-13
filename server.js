@@ -23,19 +23,63 @@ app.use(express.static('public'));
 
 
 var topNewsAR;
+var tNews;
+var tCS;
+var tAsk;
+var tClub;
+
 //get the top news when any page is loaded and update it
 app.get('*',function(req,res,next){
-  var topnewsdb = db.collection('topnews')
-    topnewsdb.find({}).toArray(function (err, topnews) {
-        if (err) {
-          res.status(500).send({
-            error: "Error fetching news from DB"
-          });
-        }
-        else{
-            topNewsAR = topnews;
-        }
-    });
+  var newsDB = db.collection("newsPosts");
+  var csDB = db.collection("csPosts");
+  var askDB = db.collection("askPosts");
+  var clubDB = db.collection("clubPosts");
+  //update top post for news
+  newsDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+      console.log("==news top post:",top[0].postContent);
+        tNews = top[0].postContent;
+    }
+  });
+  //update top post for cs
+  csDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+      console.log("==cs top post:",top[0].postContent);
+        tCS = top[0].postContent;
+    }
+  });
+  //update top post for ask
+  askDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+        tAsk = top[0].postContent;
+        console.log("==ask top post:",top[0].postContent);
+    }
+  });
+  //update top post for clubs
+  clubDB.find().sort({comments:-1}).limit(1).toArray(function(err,top){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching newsPosts from DB"
+      });
+    } else {
+        console.log("==club top post:",top[0].postContent);
+        tClub = top[0].postContent;
+    }
+  });
+
+     //topNewsAR = JSON.stringify([{text:tNews, link:"/news"},{text:tCS, link:"/computer-science"},{text:tAsk, link:"/ask-anything"},{text:tClub, link:"/clubs"}]);
     next();
 });
 
@@ -44,7 +88,11 @@ app.get('/',function(req,res,next){
     var collection = db.collection('topnews')
     console.log("==Server Displaying Mainpage");
             res.status(200).render('mainPage',{
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
         });   
 });
@@ -73,7 +121,11 @@ app.get('/news',function(req,res,next){
             console.log("==newsPosts:", newsPosts);
             res.status(200).render('news',{
                 posts: newsPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
@@ -134,7 +186,11 @@ app.get('/computer-science',function(req,res,next){
             console.log("==csPosts:", csPosts);
             res.status(200).render('news',{
                 posts: csPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
@@ -155,7 +211,11 @@ app.get('/ask-anything',function(req,res,next){
             console.log("==posts:", askPosts);
             res.status(200).render('news',{
                 posts: askPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }
@@ -176,7 +236,11 @@ app.get('/clubs',function(req,res,next){
             console.log("==clubPosts:", clubPosts);
             res.status(200).render('news',{
                 posts: clubPosts,
-                news:topNewsAR,
+                //news:topNewsAR,
+                newsText:tNews,
+                csText:tCS,
+                askText:tAsk,
+                clubText:tClub,
                 fileNotFound:false
             });
         }

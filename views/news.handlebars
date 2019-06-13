@@ -31,9 +31,30 @@
         </h2>
 
         <ol class="top-posts-list">
-          {{#each news}}
-            {{>topNewsTemplate}}
-          {{/each}}
+          <li>
+            <a href="/news">
+             {{newsText}}
+            </a>
+          </li>
+          <hr>
+          <li>
+            <a href="/computer-science">
+             {{csText}}
+            </a>
+          </li>
+          <hr>
+          <li>
+            <a href="/ask anything">
+             {{askText}}
+            </a>
+          </li>
+          <hr>
+          <li>
+            <a href="/clubs">
+             {{clubText}}
+            </a>
+          </li>
+          <hr>
         </ol>
 
       </div>
