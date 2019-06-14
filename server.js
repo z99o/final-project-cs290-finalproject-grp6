@@ -144,27 +144,16 @@ app.post('/news', function (req, res, next) {
       });
     } else {
         console.log("==curPost:", curPost);
-        curId = curPost[0].postId;
+        curId = curPost[0].postId+1;
     }
   });
 
-  console.log("== req.body:", req.body);
-  if (req.postContent) {
-    if (peopleData[person]) {
-      peopleData[person].photos.push({
-        postId: curId++,
-        postContent: "test",
-        comments: []
-      });
-      res.status(200).send("Post successfully added");
-    } else {
-      next();
-    }
-  } else {
-    res.status(400).send({
-      error: "something fcucked up"
-    });
+  collection.insertOne(
+  {postId: curId,
+  postContent: req.params.postContent,
+  comments:[]
   }
+);
 });
 
 
@@ -250,7 +239,7 @@ app.get('/clubs',function(req,res,next){
 });
 app.get('*',function(req,res,next){
     console.log("==Server Displaying 404 Page");
-    res.status(404).render('news',{
+    res.status(200).render('news',{
       fileNotFound: true
     });
 });

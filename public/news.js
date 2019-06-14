@@ -1,29 +1,6 @@
 // Handle user's clicks
-window.addEventListener('click', function(event) {
 
-  // When the user clicks the post button
-  if (event.target.classList.contains("accept-button")) {
-    createPost(event);
-  }
 
-  if (event.target.classList.contains("post-comment-button")) {
-    addComment(event);
-  }
-
-  // When the user clicks the see comments button
-  else if (event.target.classList.contains("view-comments-button")) {
-    viewComments(event);
-  }
-
-  // If the user clicks the hide post button or the icon in the button
-  else if (event.target.classList.contains("hide-post-button") ||
-    event.target.parentNode.classList.contains("hide-post-button")) {
-    hidePost(event);
-  } else if (event.target.classList.contains("close-menu-button") ||
-    event.target.parentNode.classList.contains("close-menu-button")) {
-    hideMenu(event);
-  }
-});
 
 // Shows/hides comments of the post that the user clicked on
 function viewComments(event) {
@@ -86,11 +63,10 @@ function createPost(event) {
   } else {
 
     var postRequest = new XMLHttpRequest();
-    var requestURL = '/' + getPageIdFromURL();
+    var requestURL = '/news'
     postRequest.open('POST', requestURL);
     var requestBody = JSON.stringify({
       postContent: postText,
-      comments: []
     });
 
     postRequest.addEventListener('load', function (event) {
@@ -98,7 +74,6 @@ function createPost(event) {
         var postTemplate = Handlebars.templates.postTemplate;
         var newPostHTML = postTemplate({
           postContent: postText,
-          comments: []
         });
         var postContainer = document.getElementById('center-content');
         photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
@@ -216,3 +191,30 @@ var menu = document.getElementById('sideMenu');
 menu.addEventListener('click', function() {
   document.getElementById("background").style.background = "lightblue";
 })*/
+window.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('click', function(event) {
+
+    // When the user clicks the post button
+    if (event.target.classList.contains("accept-button")) {
+      createPost(event);
+    }
+
+    if (event.target.classList.contains("post-comment-button")) {
+      addComment(event);
+    }
+
+    // When the user clicks the see comments button
+    else if (event.target.classList.contains("view-comments-button")) {
+      viewComments(event);
+    }
+
+    // If the user clicks the hide post button or the icon in the button
+    else if (event.target.classList.contains("hide-post-button") ||
+      event.target.parentNode.classList.contains("hide-post-button")) {
+      hidePost(event);
+    } else if (event.target.classList.contains("close-menu-button") ||
+      event.target.parentNode.classList.contains("close-menu-button")) {
+      hideMenu(event);
+    }
+  });
+});
