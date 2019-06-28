@@ -1,12 +1,5 @@
-GROUP 6 FINAL PROJECT
+Background:
+This is my CS 290, Web Development final project. This was a group project spanning two weeks of work between myself and three other team members. My contribution to this project was the server.js, entire views folder containing .handlebars files I adapted from other team member's HTML files, and running a MongoDB database. I also served as a leader, discussing the current status of the project, setting expectations and deadlines for work portions, and giving constructive feedback. Our final grade for this assignment was a 95/100. 
 
-Format for posts in DB
-
-posts: {
-    postId: 0,  //number that we'll iterate for each post
-    postContent: 'Test Post, Please Ignore', //string
-    comments: [{ 
-		commentContent: "comment", //string
-		commentDate: "date"  /string
-	}
-]};
+About:
+The website is designed to be a small forum featuring anonymous posts. A user is able to post to the website, creating a new entry into the mongo database containing their post content and timestamp. There are four forum pages, each with a different topic. When I built the handlebars files I wanted to implement a design that had future additions in mind, so all the forum pages use the same handlebars files, but have a different header to indicate the page content. During the project we used the git source control to help collaborate on different changes to the files.
